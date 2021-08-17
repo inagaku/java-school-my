@@ -1,5 +1,6 @@
 package homework.lab1;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -72,5 +73,24 @@ public class ArraySuperIntegerList implements SuperIntegerList {
             System.out.print(arrayInts[i] + " ");
         }
         System.out.println();
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ArraySuperIntegerList that = (ArraySuperIntegerList) o;
+
+        if (currentPos != that.currentPos) return false;
+        return Arrays.equals(arrayInts, that.arrayInts);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(arrayInts);
+        result = 31 * result + currentPos;
+        return result;
     }
 }
