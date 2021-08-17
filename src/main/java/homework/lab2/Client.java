@@ -40,7 +40,7 @@ public class Client {
         }
     }
 
-    Client(Builder builder) {
+    private Client(Builder builder) {
         this.debt = builder.debt;
         this.bonus = builder.bonus;
         this.name = builder.name;
