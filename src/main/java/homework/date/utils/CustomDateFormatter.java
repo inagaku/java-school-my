@@ -1,14 +1,23 @@
 package homework.date.utils;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 
 public class CustomDateFormatter {
-    final private EINSTEIN_BIRTHDAY = Date()
-    static public Date convertStrToDate(String string) {
-        "14.03.1879"
-    }
+        private static DateTimeFormatter stupidFormatter = DateTimeFormatter.ofPattern("dd=MM=yyyy_hh+mm+ss-a");
 
-    static public String convertDateToString(Date date) {
+        public static LocalDateTime convertStringToDate(String date){
+            LocalDateTime localDateTime = LocalDateTime.parse(date, stupidFormatter);
+            return localDateTime;
+        }
+
+        public static String convertDateToString(LocalDateTime date) {
+            return stupidFormatter.format(date);
+        }
 
     }
-}
