@@ -12,26 +12,22 @@ import static homework.lab3.random.utils.Random.randomName;
 enum HEROES {
     Hobbit {
         public Hobbit getHero() {
-            String heroName = randomName();
-            return new Hobbit(heroName);
+            return new Hobbit(randomName());
         }
     },
     Elf {
         public Elf getHero() {
-            String heroName = randomName();
-            return new Elf(heroName);
+            return new Elf(randomName());
         }
     },
     King {
         public King getHero() {
-            String heroName = randomName();
-            return new King(heroName);
+            return new King(randomName());
         }
     },
     Knight {
         public Knight getHero() {
-            String heroName = randomName();
-            return new Knight(heroName);
+            return new Knight(randomName());
         }
     }
 }
