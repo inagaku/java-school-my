@@ -7,32 +7,30 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Random;
 
+import static homework.lab3.random.utils.Random.randomName;
+
 enum HEROES {
     Hobbit {
         public Hobbit getHero() {
-            Faker faker = new Faker();
-            String heroName = faker.gameOfThrones().character();
+            String heroName = randomName();
             return new Hobbit(heroName);
         }
     },
     Elf {
         public Elf getHero() {
-            Faker faker = new Faker();
-            String heroName = faker.gameOfThrones().character();
+            String heroName = randomName();
             return new Elf(heroName);
         }
     },
     King {
         public King getHero() {
-            Faker faker = new Faker();
-            String heroName = faker.gameOfThrones().character();
+            String heroName = randomName();
             return new King(heroName);
         }
     },
     Knight {
         public Knight getHero() {
-            Faker faker = new Faker();
-            String heroName = faker.gameOfThrones().character();
+            String heroName = randomName();
             return new Knight(heroName);
         }
     }
