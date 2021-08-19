@@ -14,7 +14,7 @@ public class Hobbit extends Hero {
         return this.cry() + battleStat(enemy);
     }
 
-    public String cry() {
+    private String cry() {
         return this.getName() + ": I'm crying!\n";
     }
 }
