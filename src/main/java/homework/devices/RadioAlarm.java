@@ -1,6 +1,6 @@
 package homework.devices;
 
-public class RadioAlarm implements StandartAlarm, StandartRadio{
+public class RadioAlarm implements StandartRadioAlarm{
     @Override
     public void a() {
         System.out.println("Method A");
