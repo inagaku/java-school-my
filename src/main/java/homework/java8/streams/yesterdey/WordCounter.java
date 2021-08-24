@@ -10,10 +10,10 @@ import java.util.Arrays;
 public class WordCounter {
     @SneakyThrows
     public static long countWords(String song) {
-        return Files.lines(Path.of(song)).flatMap(s -> Arrays.stream(s.split("\\w+"))).count();
+        return Files.lines(Path.of(song)).flatMap(s -> Arrays.stream(s.split("\\s+"))).count();
     }
 
     public static void main(String[] args) {
-        System.out.println(countWords("C:\\Users\\Nikita\\IdeaProjects\\java-school-my\\data\\song.txt"));
+        System.out.println(countWords("data\\song.txt"));
     }
 }
