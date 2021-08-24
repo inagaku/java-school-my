@@ -33,7 +33,7 @@ public class EmployeeService {
         orderBySalary(List.of(new Employee("Jhon", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500))).stream()
                 .forEach(System.out::println);
 
-        listToMapBySalary(List.of(new Employee("Jhon", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500)))
+        listToMapBySalary(List.of(new Employee("Jack", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500)))
                 .forEach((key, value) -> System.out.println(key + "-" + value));
     }
 }
