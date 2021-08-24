@@ -1,10 +1,10 @@
 package homework.java8.streams;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class EmployeeService {
+public class EmployeeUtils {
     public static int totalSalary(List<Employee> employeeList) {
         return employeeList.stream().mapToInt(Employee::getSalary).sum();
     }
@@ -15,7 +15,7 @@ public class EmployeeService {
 
     public static List<String> orderBySalary(List<Employee> employeeList) {
         return employeeList.stream()
-                .sorted((t1, t2) -> t2.getSalary() - t1.getSalary())
+                .sorted(Comparator.comparingInt(Employee::getSalary))
                 .map(Employee::getName)
                 .collect(Collectors.toList());
     }
@@ -26,14 +26,15 @@ public class EmployeeService {
     }
 
     public static void main(String[] args) {
-//        System.out.println(totalSalary(List.of(new Employee("Jhon", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500))));
-//        System.out.println(totalSalaryReduce(List.of(new Employee("Jhon", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500))));
+        /*System.out.println(totalSalary(List.of(new Employee("Jhon", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500))));
+        System.out.println(totalSalaryReduce(List.of(new Employee("Jhon", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500))));
 
 
-        orderBySalary(List.of(new Employee("Jhon", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500))).stream()
+        orderBySalary(List.of(new Employee("Jhon", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500)))
                 .forEach(System.out::println);
 
         listToMapBySalary(List.of(new Employee("Jack", 1000), new Employee("Jarvis", 2000), new Employee("Jack", 3500)))
-                .forEach((key, value) -> System.out.println(key + "-" + value));
+                .forEach((key, value) -> System.out.println(key + "-" + value));*/
+
     }
 }
