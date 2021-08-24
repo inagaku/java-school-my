@@ -6,5 +6,5 @@ import java.util.function.Consumer;
  * @author Evgeny Borisov
  */
 public interface ActionMaker<T> {
-    void doAction(T t);
+    void doAction(T t, int delay) throws InterruptedException;
 }
