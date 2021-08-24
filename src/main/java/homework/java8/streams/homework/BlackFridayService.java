@@ -10,8 +10,8 @@ public class BlackFridayService {
 
     public static void printBlackFridayPerYearSorted(int startYear, int endYear) {
 
-        LocalDate startDate = LocalDate.of(startYear, 1, 1);
-        LocalDate endDate = LocalDate.of(endYear, 12, 31);
+        LocalDate startDate = LocalDate.of(startYear, 1, 13);
+        LocalDate endDate = LocalDate.of(endYear, 12, 13);
 
         startDate.datesUntil(endDate)
                 .filter(date -> date.getDayOfMonth() == 13 && date.getDayOfWeek() == DayOfWeek.FRIDAY)
