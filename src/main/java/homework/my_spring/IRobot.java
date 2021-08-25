@@ -1,12 +1,17 @@
 package homework.my_spring;
 
+import homework.my_spring.annotations_lab.InjectByType;
+
 /**
  * @author Evgeny Borisov
  */
+
 public class IRobot {
     //todo make support for @InjectByType
-    private Speaker speaker = ObjectFactory.getInstance().createObject(Speaker.class);
-    private Cleaner cleaner = ObjectFactory.getInstance().createObject(Cleaner.class);
+    @InjectByType
+    private Speaker speaker;
+    @InjectByType
+    private Cleaner cleaner;
 
     public void cleanRoom(){
         speaker.speak("Я начал работать");

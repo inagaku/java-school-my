@@ -7,13 +7,12 @@ import lombok.SneakyThrows;
 
 import java.lang.reflect.Field;
 
-/**
- * @author Evgeny Borisov
- */
 public class ObjectFactory {
     @Getter
-    private static ObjectFactory instance = new ObjectFactory();
+    public static ObjectFactory instance = new ObjectFactory();
     private Config config = new JavaConfig();
+
+    private int testPar;
 
     @SneakyThrows
     public <T> T createObject(Class<T> type) {
@@ -31,7 +30,6 @@ public class ObjectFactory {
                 field.setInt(t, RandomUtil.between(annotation.fromValue(), annotation.toValue()));
             }
         }
-
 
         return t;
     }

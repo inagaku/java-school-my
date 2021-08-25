@@ -3,7 +3,7 @@ package homework.my_spring;
 /**
  * @author Evgeny Borisov
  */
-public class CleanerImpl implements my_spring.Cleaner {
+public class CleanerImpl implements Cleaner {
 
     //@InjectRandomInt(min=3,max = 5)
     private int repeat;

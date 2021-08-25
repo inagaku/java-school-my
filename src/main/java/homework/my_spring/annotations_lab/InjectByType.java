@@ -7,7 +7,5 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface InjectRandomInt {
-    int fromValue();
-    int toValue();
+public @interface InjectByType {
 }

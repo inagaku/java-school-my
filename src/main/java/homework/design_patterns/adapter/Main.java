@@ -10,6 +10,6 @@ public class Main {
 
         Costable product = productRepo.getProduct();
 
-        productHandler.handle(product);
+//        productHandler.handle(product);
     }
 }
