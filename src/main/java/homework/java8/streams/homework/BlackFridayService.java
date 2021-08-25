@@ -15,7 +15,7 @@ public class BlackFridayService {
         LocalDate endDate = LocalDate.of(endYear, 12, 13);
 
         startDate.datesUntil(endDate, Period.ofMonths(1))
-                .filter(date -> date.getDayOfMonth() == 13 && date.getDayOfWeek() == DayOfWeek.FRIDAY)
+                .filter(date -> date.getDayOfWeek() == DayOfWeek.FRIDAY)
                 .collect(Collectors.groupingBy(LocalDate::getYear, Collectors.counting()))
                 .entrySet().stream()
                 .sorted((d1, d2) -> (int) (d2.getValue() - d1.getValue()))
