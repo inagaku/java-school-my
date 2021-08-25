@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.stream.Collectors;
 
 public class BlackFridayService {
@@ -13,7 +14,7 @@ public class BlackFridayService {
         LocalDate startDate = LocalDate.of(startYear, 1, 13);
         LocalDate endDate = LocalDate.of(endYear, 12, 13);
 
-        startDate.datesUntil(endDate)
+        startDate.datesUntil(endDate, Period.ofMonths(1))
                 .filter(date -> date.getDayOfMonth() == 13 && date.getDayOfWeek() == DayOfWeek.FRIDAY)
                 .collect(Collectors.groupingBy(LocalDate::getYear, Collectors.counting()))
                 .entrySet().stream()
