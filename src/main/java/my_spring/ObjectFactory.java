@@ -22,6 +22,8 @@ public class ObjectFactory {
 
     private List<ObjectConfigurator> configurators = new ArrayList<>();
 
+    private final ProxyAnnotationsChecker proxyAnnotationsChecker;
+
     @SneakyThrows
     public ObjectFactory() {
         Set<Class<? extends ObjectConfigurator>> classes = scanner.getSubTypesOf(ObjectConfigurator.class);
@@ -30,6 +32,8 @@ public class ObjectFactory {
                 configurators.add(aClass.getDeclaredConstructor().newInstance());
             }
         }
+
+        proxyAnnotationsChecker = new ProxyAnnotationsCheckerBenchmark();
     }
 
     @SneakyThrows
@@ -49,7 +53,6 @@ public class ObjectFactory {
     }
 
     private <T> T checkForBenchmarkAnnotation(T t) {
-        ProxyAnnotationsChecker proxyAnnotationsChecker = new ProxyAnnotationsCheckerBenchmark();
         return proxyAnnotationsChecker.checkForAnnotation(t);
     }
 
