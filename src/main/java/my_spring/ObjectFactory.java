@@ -54,6 +54,7 @@ public class ObjectFactory {
         Method[] methods = t.getClass().getDeclaredMethods();
         for (Method method : methods) {
             if (method.getName().startsWith("init")) {
+                method.setAccessible(true);
                 method.invoke(t);
             }
         }
