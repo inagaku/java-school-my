@@ -8,9 +8,6 @@ import java.lang.reflect.Field;
  * @author Evgeny Borisov
  */
 public class InjectByTypeAnnotationObjectConfigurator implements ObjectConfigurator {
-
-
-
     @Override
     @SneakyThrows
     public void configure(Object t) {

@@ -11,7 +11,8 @@ public class Main {
         context.getObject(IRobot.class).cleanRoom();*/
 
 
-        IRobot iRobot = ObjectFactory.getInstance().createObject(IRobot.class);
+        IRobot iRobot = (IRobot) ObjectFactory.getInstance().createObject(IRobot.class);
+
         iRobot.cleanRoom();
     }
 }

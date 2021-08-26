@@ -2,12 +2,12 @@ package my_spring;
 
 import lombok.Getter;
 import lombok.SneakyThrows;
+import org.reflections.ReflectionUtils;
 import org.reflections.Reflections;
 
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import javax.annotation.PostConstruct;
+import java.lang.reflect.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -30,36 +30,41 @@ public class ObjectFactory {
                 configurators.add(aClass.getDeclaredConstructor().newInstance());
             }
         }
-
     }
 
     @SneakyThrows
     public <T> T createObject(Class<T> type) {
-        type = resolveImple(type);
-        T t = type.getDeclaredConstructor().newInstance();
-        configure(t);
-        initPostconstuctor(t);
 
-        // run init method
+        type = resolveImple(type);
+
+        T t = type.getDeclaredConstructor().newInstance();
+
+        configure(t);
+
+        invokeInit(type, t);
+
+        t = checkForBenchmarkAnnotation(t);
 
         return t;
+    }
+
+    private <T> T checkForBenchmarkAnnotation(T t) {
+        ProxyAnnotationsChecker proxyAnnotationsChecker = new ProxyAnnotationsCheckerBenchmark();
+        return proxyAnnotationsChecker.checkForAnnotation(t);
+    }
+
+
+    private <T> void invokeInit(Class<T> type, T t) throws IllegalAccessException, InvocationTargetException {
+        Set<Method> allMethods = ReflectionUtils.getAllMethods(type, method -> method.isAnnotationPresent(PostConstruct.class));
+
+        for (Method method : allMethods) {
+            method.invoke(t);
+        }
     }
 
     private <T> void configure(T t) {
         configurators.forEach(configurator -> configurator.configure(t));
     }
-
-    @SneakyThrows
-    private <T> void initPostconstuctor(T t) {
-        Method[] methods = t.getClass().getDeclaredMethods();
-        for (Method method : methods) {
-            if (method.getName().startsWith("init")) {
-                method.setAccessible(true);
-                method.invoke(t);
-            }
-        }
-    }
-
 
     private <T> Class<T> resolveImple(Class<T> type) {
         if (type.isInterface()) {
