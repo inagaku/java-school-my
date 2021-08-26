@@ -1,4 +1,4 @@
-package homework.my_spring.annotations_lab;
+package homework.my_spring_old.annotations_lab;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

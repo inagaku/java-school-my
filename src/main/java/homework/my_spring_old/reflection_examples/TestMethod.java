@@ -1,4 +1,4 @@
-package homework.my_spring.reflection_examples;/**
+package homework.my_spring_old.reflection_examples;/**
  * @author Evgeny Borisov
  */
 

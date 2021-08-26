@@ -1,9 +1,7 @@
-package homework.my_spring;
+package homework.my_spring_old;
 
 import homework.lab3.Hero;
-import homework.my_spring.annotations_lab.InjectByType;
-import homework.my_spring.annotations_lab.InjectRandomInt;
-import homework.utils.RandomUtil;
+import homework.my_spring_old.annotations_lab.InjectByType;
 import lombok.Getter;
 import lombok.SneakyThrows;
 

@@ -1,4 +1,4 @@
-package homework.my_spring.reflection_examples;
+package homework.my_spring_old.reflection_examples;
 
 import com.github.javafaker.Animal;
 import lombok.SneakyThrows;

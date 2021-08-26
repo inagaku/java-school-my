@@ -1,4 +1,4 @@
-package homework.my_spring;
+package my_spring;
 
 /**
  * @author Evgeny Borisov

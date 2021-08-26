@@ -1,6 +1,6 @@
 package homework.lab3;
 
-import homework.my_spring.annotations_lab.InjectRandomInt;
+import homework.my_spring_old.annotations_lab.InjectRandomInt;
 import lombok.Data;
 
 import java.util.Random;
